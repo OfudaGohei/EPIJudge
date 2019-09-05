@@ -9,6 +9,22 @@ RED, WHITE, BLUE = range(3)
 
 def dutch_flag_partition(pivot_index, A):
     # TODO - you fill in here.
+    low = []
+    mid = []
+    high = []
+    pivot = A[pivot_index]
+    for i in range(len(A)):
+        if A[i] < pivot:
+            low.append(A[i])
+        elif A[i] > pivot:
+            high.append(A[i])
+        else:
+            mid.append(A[i])
+    j = len(low)
+    A[0:j] = low
+    A[j:len(mid)+j] = mid
+    j += len(mid)
+    A[j:j+len(high)] = high   
     return
 
 
