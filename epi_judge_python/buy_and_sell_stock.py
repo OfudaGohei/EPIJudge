@@ -3,7 +3,13 @@ from test_framework import generic_test
 
 def buy_and_sell_stock_once(prices):
     # TODO - you fill in here.
-    return 0.0
+    maxSell = 0.0
+    for i in range(len(prices)):
+        for j in range(i+1, len(prices)):
+            profit = prices[j] - prices[i]
+            if profit > maxSell:
+                maxSell = profit
+    return maxSell
 
 
 if __name__ == '__main__':
