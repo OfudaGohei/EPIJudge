@@ -4,12 +4,23 @@ from test_framework.test_failure import TestFailure
 
 def int_to_string(x):
     # TODO - you fill in here.
-    return ''
+    if x == 0:
+        return '0'
+    ret_val = ''
+    while x != 0:
+        x, remainder = divmod(x, 10)
+        ret_val = chr(remainder+48) + ret_val
+    return ret_val
 
 
 def string_to_int(s):
     # TODO - you fill in here.
-    return 0
+    ret_val = 0
+    j = len(s)-1
+    for i in range(len(s)):
+        ret_val += (ord(s[i])-48) * (10 ** j)
+        j -= 1
+    return ret_val
 
 
 def wrapper(x, s):
