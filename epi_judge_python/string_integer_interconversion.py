@@ -7,9 +7,15 @@ def int_to_string(x):
     if x == 0:
         return '0'
     ret_val = ''
+    neg = False
+    if x < 0:
+        neg = True
+        x = x * -1
     while x != 0:
         x, remainder = divmod(x, 10)
         ret_val = chr(remainder+48) + ret_val
+    if neg == True:
+        ret_val = '-' + ret_val
     return ret_val
 
 
