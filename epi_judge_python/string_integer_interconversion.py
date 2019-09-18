@@ -21,11 +21,17 @@ def int_to_string(x):
 
 def string_to_int(s):
     # TODO - you fill in here.
+    neg = False
     ret_val = 0
+    if s[0] == '-':
+        neg = True
+        s = s[1:len(s)]
     j = len(s)-1
     for i in range(len(s)):
-        ret_val += (ord(s[i])-48) * (10 ** j)
+        ret_val += (ord(s[j])-48) * (10 ** i)
         j -= 1
+    if neg:
+        ret_val *= -1
     return ret_val
 
 
